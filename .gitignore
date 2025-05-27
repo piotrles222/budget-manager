@@ -1,11 +1,60 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
-*.db
-instance/
-.env
+*.pyd
+*.pyc
+
+# C extensions
+*.so
+
+# Virtual environment
+.venv/
 venv/
-.DS_Store
-node_modules/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Flask instance folder
+instance/
+
+# Local SQLite database
+*.db
 *.sqlite3
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+
+# Logs
 *.log
+
+# Coverage / test
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+nosetests.xml
+*.cover
+*.py,cover
+
+# PyInstaller
+dist/
+build/
+
+# Distribution / packaging
+*.egg-info/
+.eggs/
+*.egg
+*.whl
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
