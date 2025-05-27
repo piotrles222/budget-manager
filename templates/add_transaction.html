@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Dodaj transakcję</h2>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">{{ form.amount.label }} {{ form.amount(class="form-control") }}</div>
+    <div class="mb-3">{{ form.description.label }} {{ form.description(class="form-control") }}</div>
+    <div class="mb-3">{{ form.is_income.label }} {{ form.is_income() }}</div>
+    <div class="mb-3">{{ form.category.label }} {{ form.category(class="form-select") }}</div>
+    <div class="mb-3">{{ form.submit(class="btn btn-primary") }}</div>
+  </form>
+{% endblock %}
