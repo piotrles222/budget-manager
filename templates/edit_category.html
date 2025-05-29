@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Edytuj kategorię</title>
+</head>
+<body>
+  <h1>Edytuj kategorię</h1>
+
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.name.label }}<br>
+      {{ form.name(size=30) }}<br>
+      {% for error in form.name.errors %}
+        <span style="color:red;">{{ error }}</span>
+      {% endfor %}
+    </p>
+
+    <p>{{ form.submit() }}</p>
+  </form>
+
+  <p><a href="{{ url_for('list_categories') }}">Powrót do listy kategorii</a></p>
+</body>
+</html>

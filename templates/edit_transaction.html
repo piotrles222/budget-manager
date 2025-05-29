@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Edytuj transakcję</h2>
+  <form method="POST">
+  
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3">
+      {{ form.amount.label }} {{ form.amount(class="form-control") }}
+    </div>
+    <div class="mb-3">
+      {{ form.description.label }} {{ form.description(class="form-control") }}
+    </div>
+    <div class="mb-3">
+      {{ form.category.label }} {{ form.category(class="form-select") }}
+    </div>
+    <div class="mb-3 form-check">
+      {{ form.is_income() }} {{ form.is_income.label }}
+    </div>
+    <button type="submit" class="btn btn-primary">Zapisz</button>
+    <a href="{{ url_for('home') }}" class="btn btn-secondary">Anuluj</a>
+  </form>
+{% endblock %}

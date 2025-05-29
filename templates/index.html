@@ -1,1 +1,47 @@
+{% extends 'base.html' %}
 
+{% block content %}
+  <h2>Lista transakcji</h2>
+
+  <a href="{{ url_for('add_transaction') }}" class="btn btn-success mb-3">+ Dodaj transakcję</a>
+
+  {% if transactions %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Kwota</th>
+          <th>Opis</th>
+          <th>Kategoria</th>
+          <th>Typ</th>
+          <th>Akcje</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for t in transactions %}
+          <tr>
+            <td>{{ t.date.strftime('%Y-%m-%d %H:%M') }}</td>
+            <td>{{ "%.2f"|format(t.amount) }} zł</td>
+            <td>{{ t.description or "-" }}</td>
+            <td>{{ t.category.name }}</td>
+            <td>
+              {% if t.is_income %}
+                <span class="text-success">Dochód</span>
+              {% else %}
+                <span class="text-danger">Wydatek</span>
+              {% endif %}
+            </td>
+            <td>
+              <a href="{{ url_for('edit_transaction', id=t.id) }}" class="btn btn-sm btn-primary">Edytuj</a>
+              <form method="POST" action="{{ url_for('delete_transaction', id=t.id) }}" style="display:inline;">
+                <button class="btn btn-sm btn-danger" onclick="return confirm('Usunąć transakcję?')">Usuń</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Brak transakcji do wyświetlenia.</p>
+  {% endif %}
+{% endblock %}

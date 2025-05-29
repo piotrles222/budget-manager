@@ -9,5 +9,15 @@
 <div class="container mt-4">
   {% block content %}{% endblock %}
 </div>
+
+
 </body>
+<nav class="mb-4">
+  <a href="{{ url_for('home') }}" class="btn btn-outline-primary">Strona główna</a>
+  <a href="{{ url_for('add_transaction') }}" class="btn btn-outline-success">Dodaj transakcję</a>
+  <a href="{{ url_for('add_category') }}" class="btn btn-primary">Dodaj kategorię</a>
+  <a href="{{ url_for('list_categories') }}" class="btn btn-outline-info">Zobacz listę kategorii</a>
+  <a href="{{ url_for('charts') }}" class="btn btn-outline-info">Wykresy</a>
+</nav>
+
 </html>
